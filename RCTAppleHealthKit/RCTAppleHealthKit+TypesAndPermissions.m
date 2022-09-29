@@ -173,6 +173,8 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
     } else if ([@"BodyTemperature" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
+    } else if ([@"BloodPressure" isEqualToString: key]) {
+        return [HKCorrelationType correlationTypeForIdentifier:HKCorrelationTypeIdentifierBloodPressure];
     } else if ([@"BloodPressureSystolic" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic];
     } else if ([@"BloodPressureDiastolic" isEqualToString: key]) {
@@ -205,12 +207,12 @@
     if ([@"BloodAlcoholContent" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodAlcoholContent];
     }
-    
+
     // Activity Summary
     if ([@"ActivitySummary" isEqualToString:key]){
         return [HKObjectType activitySummaryType];
     }
-    
+
     // Clinical Records
     if ([@"AllergyRecord" isEqualToString:key]) {
         return [RCTAppleHealthKit clinicalTypeFromName:@"AllergyRecord"];
@@ -367,7 +369,7 @@
     if ([@"Workout" isEqualToString:key]) {
         return [HKObjectType workoutType];
     }
-    
+
     // Workout Route
     if ([@"WorkoutRoute" isEqualToString:key]) {
         return [HKSeriesType workoutRouteType];
